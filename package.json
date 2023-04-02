@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "ffxvi-clive",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "dependencies": {
+    "@devvit/public-api": "0.8.11"
+  },
+  "devDependencies": {
+    "@devvit/tsconfig": "0.8.11",
+    "typescript": "4.9.3"
+  },
+  "scripts": {
+    "update": "devvit update install $npm_package_config_appName $npm_package_config_community",
+    "upload": "devvit upload",
+    "push": "yarn upload && yarn update && yarn debug",
+    "debug": "yarn debug:logs & pid1=\"$!\" ; yarn debug:ui ; kill $pid1",
+    "debug:logs": "devvit logs $npm_package_config_appName $npm_package_config_community",
+    "debug:ui": "devvit run -o"
+  }
+}
