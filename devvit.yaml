@@ -1,3 +1,4 @@
 name: ffxvi-clive
-version: 0.0.0
+slug: ffxvi-clive-ahi
+version: 6.0.0
 packageManager: yarn

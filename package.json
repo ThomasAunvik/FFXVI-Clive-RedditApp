@@ -5,18 +5,23 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "dependencies": {
-    "@devvit/public-api": "0.8.11"
+    "@devvit/public-api": "0.9.0",
+    "axios": "^1.3.4"
   },
   "devDependencies": {
-    "@devvit/tsconfig": "0.8.11",
+    "@devvit/tsconfig": "0.9.0",
     "typescript": "4.9.3"
+  },
+  "config": {
+    "appName": "ffxvi-clive-ahi",
+    "community": "r/thaun_test"
   },
   "scripts": {
     "update": "devvit update install $npm_package_config_appName $npm_package_config_community",
     "upload": "devvit upload",
     "push": "yarn upload && yarn update && yarn debug",
     "debug": "yarn debug:logs & pid1=\"$!\" ; yarn debug:ui ; kill $pid1",
-    "debug:logs": "devvit logs $npm_package_config_appName $npm_package_config_community",
+    "debug:logs": "devvit logs ffxvi-clive-ahi r/thaun_test",
     "debug:ui": "devvit run -o"
   }
 }
