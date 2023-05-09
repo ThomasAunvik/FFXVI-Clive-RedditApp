@@ -29,10 +29,10 @@ Devvit.onPostSubmit(async (info, meta) => {
   if (info.post.nsfw) contentWarnings.push("NSFW");
 
   var body = post.body?.substring(0, 400) ?? "No Description";
-  if(body.includes(">!") && post.body?.includes("<!")) {
+  if(body.includes(">!") && post.body?.includes("!<")) {
     body = body.replace(">!", "||");
-    if(body.includes("<!")) {
-      body = body.replace("<!", "||");
+    if(body.includes("!<")) {
+      body = body.replace("!<", "||");
     } else {
       body += "||";
     }
