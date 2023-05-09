@@ -2,41 +2,43 @@
 # yarn lockfile v1
 
 
-"@devvit/plugins@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@devvit/plugins/-/plugins-0.9.0.tgz#37febc758fb96e7c5d54a5a385eb932b3b1d205e"
-  integrity sha512-xYRpCfQBopCzmslNAN7zytZINPQhX/90CzxKcFZ47484LtU9xwgUk+s1OEvqCWnfyPz4X1moIdF8VMUBKa/e/A==
+"@devvit/plugins@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@devvit/plugins/-/plugins-0.9.4.tgz#fa0dcb903227c5f98cbc28892498458b847d11bc"
+  integrity sha512-Tf3wF+mbpBWplATwaVaQF1ArA3F31ITj1wiohcFyYD+P9iryoLwUaBBasuCq1ZDtajhSaBovkl0+pgCIbAjQMA==
   dependencies:
-    "@devvit/protos" "0.9.0"
+    "@devvit/protos" "0.9.4"
 
-"@devvit/protos@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@devvit/protos/-/protos-0.9.0.tgz#c8b0cf2ae61e2977a28b8bc9959ff858cda69f6e"
-  integrity sha512-+0YVBTevAEDoItcUH0B6qCUjEBw4rupZr4WtpMarHhoHd+N6tItv/+Z+P9uLq0JQPSiznYWT71byzJJjTd3DPQ==
+"@devvit/protos@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@devvit/protos/-/protos-0.9.4.tgz#fcac366f9dc774f7582e93e6a0b34e000df8c917"
+  integrity sha512-qTY8XROQU7ZvEXExi6peUTueaHV7AyWJKGjRWfUbmc0BY2yZclYuGl7EdhL6KAEPZpcH28OMPsxevPTW1l2xEw==
   dependencies:
     glob "^8.0.3"
     protobufjs "7.1.2"
     rxjs "7.5.7"
 
-"@devvit/public-api@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@devvit/public-api/-/public-api-0.9.0.tgz#f0a66d9635800cd65b4dc304b8dcc471c0eafb59"
-  integrity sha512-kEJU7C5KpFE6W0JThs3BoTveuXEKxxRkYqjLv+H/Z82YRKSQEvgW9uJTQ/vNy4STWbcyFeuy8Vn/Is/dnXjIiQ==
+"@devvit/public-api@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@devvit/public-api/-/public-api-0.9.4.tgz#784a5f456c0e09742cebaf298b0ccc12e23e55af"
+  integrity sha512-0bq4NvOdbuU08yET6cxb8Grzj1mpQ3hhYRdvLwg5dycjNwabyaooCBAan6BDHFqF42Xv1KbxnLglo82g3oLIkA==
   dependencies:
-    "@devvit/protos" "0.9.0"
-    "@devvit/runtimes" "0.9.0"
-    "@devvit/shared-types" "0.9.0"
+    "@devvit/protos" "0.9.4"
+    "@devvit/runtimes" "0.9.4"
+    "@devvit/shared-types" "0.9.4"
+    base64-js "1.5.1"
     tslib "2.4.1"
 
-"@devvit/runtimes@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@devvit/runtimes/-/runtimes-0.9.0.tgz#5b9025caf2813ff9711853439f368cfac424f0a7"
-  integrity sha512-Wd+4GKukWk62uFEaXHu5S6S5H12hw8KFehtomnN6LcMyaDAAnU/2IQEv+lKNRtSadpQmZP3e0bx1efIxfQD8VQ==
+"@devvit/runtimes@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@devvit/runtimes/-/runtimes-0.9.4.tgz#ab1df7ae6add39ebeb07904488ec403590b3805c"
+  integrity sha512-jo87JCH2PYm9JvYiaUW9tiBt/eKkcRzSuljTilU4BYPEG1QK3QTcwStSrmrOXI55natB/JLqzKiAuHAKLFcLBA==
   dependencies:
-    "@devvit/plugins" "0.9.0"
-    "@devvit/protos" "0.9.0"
-    "@devvit/shared-types" "0.9.0"
-    "@devvit/web-worker" "0.9.0"
+    "@devvit/plugins" "0.9.4"
+    "@devvit/protos" "0.9.4"
+    "@devvit/shared-types" "0.9.4"
+    "@devvit/web-worker" "0.9.4"
+    base64-js "1.5.1"
     buffer "6.0.3"
     cron-parser "4.7.1"
     grpc-web "^1.3.1"
@@ -47,22 +49,22 @@
     uuid "8.3.2"
     ws "8.11.0"
 
-"@devvit/shared-types@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@devvit/shared-types/-/shared-types-0.9.0.tgz#f5e47d493a5e68c6c5618b150c38e6be6f9288c1"
-  integrity sha512-aHeO3OvnrSn8EHlU7pNVhgxQBaBH34gyBVn9ukNYZsGMH5W1tRnsHKYDgGmbrpH5ZQLlWyy7zn4sjfz1bmv70Q==
+"@devvit/shared-types@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@devvit/shared-types/-/shared-types-0.9.4.tgz#fc4c137a95e1510b46fb33dec2d4c00520e66507"
+  integrity sha512-x4EvPI6B3xgGYQOWG9++yqgsRMvhQ+LD4sNfy4vr14OwmQ5JxASHCUfqJtjWvv/t1UANyTKRmRXgjsmSnsUe7A==
   dependencies:
-    "@devvit/protos" "0.9.0"
+    "@devvit/protos" "0.9.4"
 
-"@devvit/tsconfig@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@devvit/tsconfig/-/tsconfig-0.9.0.tgz#57feeb63c47900bef9c30d6a22258db42bfe2b5f"
-  integrity sha512-ZOEb7DUKS+ZmNrDRJCsjhqpYbbpRK6EQIwuulEaNPJ0BMYKOAmxsGrljrHo+wqu48uuGcp9YInxNcDHYLRw07A==
+"@devvit/tsconfig@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@devvit/tsconfig/-/tsconfig-0.9.4.tgz#2d93fac95435c5b76ede8367acca4a6f8aba6aa9"
+  integrity sha512-eWKMrnUNqqaZsoMA68jFclOmf4ABu69nGtOgVXySHDY7WSxTuDnpd6j7KnEPylkEj0kUDXHMEo/qgaXBrjZznw==
 
-"@devvit/web-worker@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@devvit/web-worker/-/web-worker-0.9.0.tgz#2f42c492d1fb38456ca0cbe3cec3d1a85be2a6e5"
-  integrity sha512-wDBMLHyANHLY2nah+1y16xAU5wjlJBDC6/uIeXnjgE8ybDHhcqbmQCdqo2nHEg33DzK9xsPQlb+G8jdi5QHf/w==
+"@devvit/web-worker@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@devvit/web-worker/-/web-worker-0.9.4.tgz#f4dc9dfe2d59285684e6c8be46e4d7ebcd402fb8"
+  integrity sha512-XLWisvfxINNEjS33g9Y1fLYA0KEHOYyA6v3CLgiqAV9puKmqvr//aU3g8NIPgeGYPJzmBIb2S9O7jDPmbNOnRQ==
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
@@ -141,9 +143,9 @@ balanced-match@^1.0.0:
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
-base64-js@^1.3.1:
+base64-js@1.5.1, base64-js@^1.3.1:
   version "1.5.1"
-  resolved "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz"
+  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 brace-expansion@^2.0.1:

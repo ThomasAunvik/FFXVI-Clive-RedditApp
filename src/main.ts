@@ -6,26 +6,18 @@ import {
 } from "@devvit/public-api";
 
 const reddit = new RedditAPIClient();
-const formBuilder = new ConfigFormBuilder();
 
 Devvit.use(Devvit.Types.HTTP);
-
-Devvit.onCommentSubmit(async (submitEvent, _) => {
-  console.log("Is Parent: ", submitEvent.comment?.parentId);
-  console.log("Author: ", submitEvent.author?.id);
-
-  return {
-    message: "Ok",
-  };
-});
 
 Devvit.onPostSubmit(async (info, meta) => {
   const sub = await reddit.getCurrentSubreddit(meta);
   if (!info.post) {
     return {
-      message: "Ok",
+      message: "Skipped, no post.",
     };
   }
+
+  if(sub.name.toLowerCase() != "ffxvi") return { message: "Skipped, Subreddit not FFXVI"};
 
   const post = await reddit.getPostById(info.post.id, meta);
   if (post.removed || post.spam || post.hidden) return { meessage: "Ok" };
@@ -36,7 +28,18 @@ Devvit.onPostSubmit(async (info, meta) => {
   if (info.post.isSpoiler) contentWarnings.push("Spoiler");
   if (info.post.nsfw) contentWarnings.push("NSFW");
 
-  const response = await fetch("discord-webhookurl", {
+  var body = post.body?.substring(0, 400) ?? "No Description";
+  if(body.includes(">!") && post.body?.includes("<!")) {
+    body = body.replace(">!", "||");
+    if(body.includes("<!")) {
+      body = body.replace("<!", "||");
+    } else {
+      body += "||";
+    }
+  }
+
+  const webhookUrl = "(WEBHOOK URL)";
+  const response = await fetch(webhookUrl + "?wait=true", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -80,50 +83,9 @@ Devvit.onPostSubmit(async (info, meta) => {
   };
 });
 
-Devvit.onPostUpdate(async (_1, _2) => {
-  return { message: "Ok" };
-});
-
-Devvit.addAction({
-  context: Context.COMMENT,
-  name: "Discord Webhook",
-  description: "Sends a Webhook of this message to discord",
-  handler: async (event, meta) => {
-    const { comment } = event;
-
-    const sub = await reddit.getCurrentSubreddit(meta);
-    var subredditIcon = sub.settings.communityIcon;
-
-    const response = await fetch("discord-webhookurl", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        content: "",
-        username: "r/" + comment.subreddit,
-        avatar_url: subredditIcon,
-        tts: false,
-        embeds: [
-          {
-            title: comment.title ?? "New Comment",
-            type: "rich",
-            description: comment.body,
-            url: comment.linkUrl,
-          },
-        ],
-        author: {
-          name: "u/" + comment.author,
-        },
-      }),
-    });
-
-    return {
-      success: true,
-      message: `Invoked HTTP request on comment: ${comment?.body}. Completed with status: ${response.status}`,
-    };
-  },
-});
+const replaceCdn = (text: string) => {
+  return text.replace("cdn;", "https://cdn.xvibot.com")
+}
 
 Devvit.addAction({
   context: [Context.COMMENT, Context.POST],
@@ -157,10 +119,37 @@ Devvit.addAction({
       };
     }
 
+    const title = "**" + data["name"] + "**";
+    const skillIcon = "[Icon](" + replaceCdn(data["iconUrl"]) + ")";
+    const skillPreview = "[Preview](" + replaceCdn(data["previewImageUrl"]) + ")";
+
+    var description = data["description"] as string;
+    
+    const regex = RegExp(/<:button_(\w*):\d*>/g);
+    const regResult = description.matchAll(regex);
+    const regArr = Array.from(regResult);
+    for (let regIndex = 0; regIndex < regArr.length; regIndex++) {
+      const match = regArr[regIndex];
+
+      const [found, button] = match;
+      description = description.replace(found, button.toUpperCase());
+    }
+
+    var cost = "Cost: " + data["costBuy"];
+    if(data["costUpgrade"] && data["costUpgrade"] != 0) {
+      cost += " / " + data["costUpgrade"];
+    }
+    if(data["costMaster"] && data["costMaster"] != 0) {
+      cost += " / " + data["costMaster"];
+    }
+
+
+    const body = title + " - " + skillIcon + " - " + skillPreview + "\n\n" + description + "\n\n" + cost;
+
     await reddit.submitComment(
       {
         id: commentId,
-        text: data["description"] as string,
+        text: body,
       },
       meta
     );
