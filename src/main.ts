@@ -53,7 +53,7 @@ Devvit.onPostSubmit(async (info, meta) => {
         {
           title: info.post.title,
           type: "rich",
-          description: post.body?.substring(0, 400) ?? "No Description",
+          description: body,
           url: info.post.url,
           fields: [
             ...(contentWarnings.length > 0
